@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>N180447</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		#left{
+			border: 2px solid;
+			height: 580px;
+			width: 30%;
+			background-color: rgba(150, 150, 150, 1.0);
+			box-shadow: 5px 5px 10px black;
+
+		}
+		.d1{
+			border: 1px solid;
+			height: 580px;
+			width: 55%;
+			box-shadow: 5px 0px 10px black;
+		}
+		.d2{
+			border: 1px solid;
+			height: 580px;
+			width: 13%;
+			position: absolute;
+			top: 8px;
+			left: 240px;
+		}
+		#right{
+			border: 2px solid;
+			height: 500px;
+			width: 30%;
+			position: absolute;
+			top: 8px;
+			left: 500px;
+			background-color: rgba(150, 150, 150, 1.0);
+			box-shadow: 7px 7px 10px black;
+		}
+		.b{
+			margin-left: -38px;
+			height: 50px;
+			width: 120%;
+			background-image: linear-gradient(white 2% ,skyblue 100%);
+			word-break: 10px;
+			border-color: white;
+			color: red;
+		}
+		.b:hover{
+			box-shadow: 5px 5px 10px black;
+		}
+		.party{
+			height: 30px;
+			width: 35px;
+			float: right;
+			border-radius: 100%;
+		}
+		.text{
+			float: left;
+			position: relative;
+			top: 0px;
+			left: 0px;
+			font-size: 20px;
+		}
+		h4{
+			margin-top: -15px;
+			position: relative;
+			top: 15px;
+			left: 10px;
+
+		}
+		.a1{
+			margin-top: 0px;
+			height: 30px;
+			width: 35px;
+			float: left;
+			border-radius: 100%;	
+		}
+		
+		#display{
+			width: 80%;
+			height: 120px;
+			background-color: black;
+			margin: 25px 0px 0px 40px;
+			border-radius: 10px;
+			position: relative;
+			box-shadow: inset 0px 0px 2px 7px #7e8590,inset 0px 0px 2px 8px red;
+}
+		.radio{
+			height: 15px;
+			width: 15px;
+			border: 2px solid black;
+			border-radius: 100%;
+			float: right;
+			margin-right: 50px;
+			margin-top: 15px;
+			background-color: green;			
+		}
+		.radio:hover{
+			box-shadow: 0px 0px 20px white;
+		}
+		.label{
+			position: relative;
+			top: 15px;
+			left: -10px;
+		}
+		.powerButton{
+			height: 45px;
+			width: 45px;
+			border: 2px solid black;
+			position: relative;
+			top: 50px;
+			left: 180px;
+			background-color: green;
+			padding: 10px;
+		}
+		.powerButton:hover{
+			box-shadow: 0px 0px 20px white;
+		}
+		.reset{
+			height: 45px;
+			width: 120px;
+			border-top: 2px solid white;
+			border-left: 2px solid white;
+			border-bottom: 2px solid black;
+			border-right: 2px solid black;
+			position: relative;
+			top: 120px;
+			left: 0px;
+			background-color: red;
+			padding: 10px;
+		}
+		.reset:hover{
+			box-shadow: 0px 0px 20px white;
+		}
+		.count{
+			height: 45px;
+			width: 120px;
+			border-top: 2px solid white;
+			border-left: 2px solid white;
+			border-bottom: 2px solid black;
+			border-right: 2px solid black;
+			position: relative;
+			top: 120px;
+			left: 50px;
+			background-color: gray;
+			padding: 10px;
+		}
+		.count:hover{
+			box-shadow: 0px 0px 20px white;
+		}
+		.button1,.button2,.button3,.button4,.button5,.button6{
+			height: 45px;
+			width: 45px;
+			border-top: 2px solid white;
+			border-left: 2px solid white;
+			border-bottom: 2px solid black;
+			border-right: 2px solid black;
+			background-color: gray;
+			box-sizing: border-box;
+		}
+		.button1{
+			position: relative;
+			top: 144px;
+			left: 50px;
+		}
+		.button2{
+			position: relative;
+			top: 144px;
+			left: 75px;
+		}
+		.button3{
+			position: relative;
+			top: 144px;
+			left: 130px;
+		}
+		.button4{
+			position: relative;
+			top: 144px;
+			left: 150px;
+		}
+		.button5{
+			position: relative;
+			top: 210px;
+			left: 33px;
+		}
+		.button6{
+			position: relative;
+			top: 210px;
+			left: 53px;
+		}
+		#display img{
+			position: absolute;
+			top: 15px;
+			left: 40%;
+		}
+		#votescountVar{
+			position: absolute;
+			bottom: 20px;
+			left: 33%;
+			color: red;
+			font-size: 18px;
+		}
+		.b1{
+			height: 8.5%;
+			width: 100%;
+			border-top:1px solid ;
+			position: relative;
+		}
+		.b1 button{
+			cursor: pointer;
+			height: 85%;
+			width: 45%;
+			background-color: #272a3f;
+			border-radius: 30px;
+			border: none;
+			position: absolute;
+			top: 2px;
+			right: 20px;
+		}
+		.active{
+			box-shadow:inset 2px 2px 2px 1px white,1px 1px 2px 1px black;
+		}
+		.b1 img{
+			height: 30px;
+			width: 50px;
+			position: absolute;
+			top: 7px;
+			left: 10px;
+		}
+		.not{
+			background-color: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="left">
+		<div class="d1">
+			<ul>
+				<li><button class="b"><b class="text">Congress</b><img src="1.png" class="party"></button></li>
+				<li><button class="b"><b class="text">BJP</b><img src="2.png" class="party"></button></li>
+				<li><button class="b"><b class="text">TDP</b><img src="3.png" class="party"></button></li>
+				<li><button class="b"><b class="text">YSR Congress</b><img src="4.png" class="party"></button></li>
+				<li><button class="b"><b class="text">Loksatha</b><img src="5.png" class="party"></button></li>
+				<li><button class="b"><b class="text">CPM</b><img src="6.png" class="party"></button></li>
+				<li><button class="b"><b class="text">TRS</b><img src="7.png" class="party"></button></li>
+				<li><button class="b"><b class="text">PRP</b><img src="8.png" class="party"></button></li>
+				<li><button class="b"></button></li>
+				<li><button class="b"></button></li>
+			</ul>
+			
+		</div>
+		<div class="d2">
+			<h4>Ballot Unit</h4>
+			<div id="area1" class="b1"><img id="img1" src="left.png"><button class="active" id="but1" onclick="voteOn(1)"></button></div>
+				<div id="area2" class="b1"><img id="img2" src="left.png"><button class="active" id="but2" onclick="voteOn(2)"></button></div>
+				<div id="area3" class="b1"><img id="img3" src="left.png"><button class="active" id="but3" onclick="voteOn(3)"></button></div>
+				<div id="area4" class="b1"><img id="img4" src="left.png"><button class="active" id="but4" onclick="voteOn(4)"></button></div>
+				<div id="area5" class="b1"><img id="img5" src="left.png"><button class="active" id="but5" onclick="voteOn(5)"></button></div>
+				<div id="area6" class="b1"><img id="img6" src="left.png"><button class="active" id="but6" onclick="voteOn(6)"></button></div>
+				<div id="area7" class="b1"><img id="img7" src="left.png"><button class="active" id="but7" onclick="voteOn(7)"></button></div>
+				<div id="area8" class="b1"><img id="img8" src="left.png"><button class="active" id="but8" onclick="voteOn(8)"></button></div>
+				<div class="b1"><img src="left.png"><button class="not" style="background-color: #818084;"></button></div>
+				<div class="b1"><img src="left.png"><button class="not" style="background-color: #818084"></button></div>
+			</div>
+		
+		
+	</div>
+	<div id="right">
+		<div id="display"><img id="selectImg" src="default.png" width="50px" height="50px"><label id="votescountVar"></label></div>
+		<div class="radio" id="power"><label class="label">power</label></div>
+		<button class="powerButton" id="green" onclick="shutdown()"><img src="power.png" height="25px" width="25px"></button>
+		<button class="reset" id="reset" onclick="resetVotes()"><i style="font-size:20px;letter-spacing: 2px;color: white;">Reset</i></button>
+		<button class="count" id="count" onclick="enableCounting()" ><i style="font-size:20px;letter-spacing: 2px;color: white;">Count</i></button>
+		<button class="button1" id="voteConfirm" onclick="voteConfirmfun()" ><b style="color: green">&check;</b></button>
+		<button class="button2" id="voteCancel" onclick="voteCancelfun()" ><b style="color:red">&cross;</b></button>
+		
+		<button class="button3" id="mark1" onclick="shownewWIN()" disabled><b style="color:green">&check;</b></button>
+		<button class="button4" id="mark2" onclick="closenewWIN()" disabled><b style="color: red">&cross;</b></button>
+		<button class="button5" id="mark4" onclick="prevParty()" disabled><b>&#8678;</b></button>
+		<button class="button6" id="mark3" onclick="nextParty()" disabled><b>&#8680;</b></button>
+		
+	</div>
+<script type="text/javascript">
+	var cong=0;
+	var bjp=0;
+	var tdp=0;
+	var ysr=0;
+	var lok=0;
+	var cpm=0;
+	var trs=0;
+	var prp=0;
+	var prev=0;
+	function voteOn(i){
+		document.getElementById("selectImg").src=i+".png"
+		document.getElementById("area"+i).style.backgroundColor="#fcfcfc"
+		document.getElementById("img"+i).style.display="none";
+		document.getElementById("but"+i).disabled=true;
+		document.getElementById("but"+i).style.display="none";
+		disableFree(prev);
+		prev=i;
+}
+function disableFree(k){
+
+	if(k!=0){
+		document.getElementById("img"+k).style.display="block";
+		document.getElementById("but"+k).style.display="block";
+		document.getElementById("but"+k).disabled=false;
+		document.getElementById("area"+k).style.backgroundColor="";
+	}
+}
+function voteConfirmfun(){
+	if(prev!=0){
+		if(prev==1){
+			cong++;
+		}
+		if(prev==2){
+			bjp++;
+		}
+		if(prev==3){
+			tdp++;
+		}
+		if(prev==4){
+			ysr++;
+		}
+		if(prev==5){
+			lok++;
+		}
+		if(prev==6){
+			cpm++;
+		}
+		if(prev==7){
+			trs++;
+		}
+		if(prev==8){
+			prp++;
+		}
+
+		alert("Voted");
+		document.getElementById("selectImg").src="default.png";
+		disableFree(prev);
+		prev=0;
+	}
+	else{
+		alert("Select your party");
+	}
+}
+function voteCancelfun(){
+	disableFree(prev);
+	document.getElementById("selectImg").src="default.png";	
+}
+function resetVotes(){
+	cong=0;
+	bjp=0;
+	tdp=0;
+	ysr=0;
+	lok=0;
+	cpm=0;
+	trs=0;
+	prp=0;
+	prev=0;
+	var k=document.getElementById("votescountVar");
+	k.innerText="Resetting.....";
+	k.setAttribute("class","resetting");
+	setTimeout(function(){
+		k.innerText="";
+		k.removeAttribute("class");
+	},1200);
+}
+var flagon=0;
+function shutdown(){
+	if(flagon==0){
+		
+		document.getElementById("left").style.visibility="hidden";
+		document.getElementById("power").style.backgroundColor="red";
+		document.getElementById("votescountVar").style.visibility="hidden"
+		flagon=1;
+		disableFree(prev);
+	}
+	else if(flagon==1) {
+		document.getElementById("left").style.visibility="visible";
+		document.getElementById("power").style.backgroundColor="green";
+		flagon=0;
+	}
+}
+var p=0;
+function enableCounting(){
+	for(let i=1;i<5;i++){
+		document.getElementById("mark"+i).disabled=false;
+	}
+	showPartyVotes(100);
+	p=0;
+}
+function nextParty(){
+	p++;
+	if(p==9){
+		p=1;
+	}
+	showPartyVotes(p)
+
+}
+function prevParty(){
+	p--;
+	if(p==-1){
+		p=8;
+	}
+	showPartyVotes(p);
+}
+function showPartyVotes(iter){
+	if(iter==100){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="Total Votes :"+(cong+bjp+tdp+ysr+lok+cpm+trs+prp);
+	}
+	else if(iter==1){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="Congress :"+(cong);
+	}
+	else if(iter==2){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="BJP :"+(bjp);
+	}
+	else if(iter==3){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="TDP :"+(tdp);
+	}
+	else if(iter==4){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="YSR-CP :"+(ysr);
+	}
+	else if(iter==5){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="LOKSATHA :"+(lok);
+	}
+	else if(iter==6){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="CPM :"+(cpm);
+	}
+	else if(iter==7){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="TRS :"+(trs);
+	}
+	else if(iter==8){
+		var temp=document.getElementById("votescountVar");
+		temp.style.visibility="visible";
+		temp.innerText="PRP :"+(prp);
+	}
+}
+let results;
+function shownewWIN(){
+	results=window.open("","","height=500,width=600");
+	results.document.write("<h1>Congress : "+cong+"</h1>");
+	results.document.write("<h1>BJP : "+bjp+"</h1>");
+	results.document.write("<h1>TDP : "+tdp+"</h1>");
+	results.document.write("<h1>YSR-CP : "+ysr+"</h1>");
+	results.document.write("<h1>LOKSATHA : "+lok+"</h1>");
+	results.document.write("<h1>CPM : "+cpm+"</h1>");
+	results.document.write("<h1>TRS : "+trs+"</h1>");
+	results.document.write("<h1>PRP : "+prp+"</h1>");
+}
+function closenewWIN() {
+	results.close();
+}
+
+
+</script>
+</body>
+</html>
